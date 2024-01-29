@@ -27,3 +27,29 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+# Existing balances
+balances = {  
+  "ben" => 0,
+  "brian" => 0, 
+  "evan"=> 0,
+  "anthony" => 0}
+
+
+# Process each transaction
+for transaction in blockchain
+  from_user = transaction["from_user"]
+  to_user = transaction["to_user"]
+  amount = transaction["amount"]
+
+  if from_user
+  balances[from_user] = balances[from_user] - amount
+end
+# Increase the receiver's balance
+
+balances[to_user] = balances[to_user] + amount
+end
+
+balances.each do |user, balance|
+  puts "#{user}'s KelloggCoin balance is #{balance}"
+end
